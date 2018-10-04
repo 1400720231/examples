@@ -17,7 +17,9 @@ NEWSPIDER_MODULE = 'example.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 
+
 USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu) Gecko/20100101 Firefox/62.0'
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
@@ -52,11 +54,13 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+
 DOWNLOADER_MIDDLEWARES = {
    #　因为默认系统的CookiesMiddleware是开始的，所以我们重用并且赋值为None,让他失效
    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware':None,
    'example.middlewares.CustomerCookiesMiddleware':701,
 }
+
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
