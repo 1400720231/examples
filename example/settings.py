@@ -48,17 +48,34 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'example.middlewares.ExampleSpiderMiddleware': 543,
-#}
+
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+
+
+# -------------splash相关配置-----------------------------------------------
+# splash render.html端点地址
+SPLASH_URL = "http://localhost:8050"
+# splash 去重过滤器，具体是过滤什么的我也不晓得。。。
+DUPEFILTER_CLASS = "scrapy_splash.SplashAwareDupeFilter"
+# 用来支持SplashRequest中的cache_args参数的配置
+SPIDER_MIDDLEWARES = {
+   # 'example.middlewares.ExampleSpiderMiddleware': 543,
+   'scrapy_splash.SplashDeduplicateArgsMiddleware':100,
+}
+
 
 DOWNLOADER_MIDDLEWARES = {
    #　因为默认系统的CookiesMiddleware是开始的，所以我们重用并且赋值为None,让他失效
    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware':None,
    'example.middlewares.CustomerCookiesMiddleware':701,
+   # 下面三个是对应splash的相关配置
+
+   "scrapy_splash.SplashCookiesMiddleware":723, # 开启相关scrapy_splash中间件
+   "scrapy_splash.SplashMiddleware":725, # 开启相关scrapy_splash中间件
+   # 调整系统scrapy内部中间件的顺序
+   "scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware":810,
 }
 
 

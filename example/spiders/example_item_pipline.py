@@ -2,6 +2,10 @@
 import scrapy
 from ..items import ExampleItem
 
+
+"""
+item_pipeline使用方法
+"""
 class ExmpleSpider(scrapy.Spider):
     name = 'booksitempipeline' # spider的名字
     # 开始的爬虫地址
@@ -30,7 +34,7 @@ class ExmpleSpider(scrapy.Spider):
         
 
 """
-第一个scarpy联系的的例子
+第一个scarpy练习的的例子
 主要是了解熟悉scrapy的流程以及他的工作流走向
 知识点：
     必须重载parse解析函数

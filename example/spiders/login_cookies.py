@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-
+"""
+cookie登录
+"""
 class LoginCookie(scrapy.Spider):
     name = 'cookie'
     start_urls = ['https://www.zhihu.com/people/tian-geng-shang-de-python/activities']

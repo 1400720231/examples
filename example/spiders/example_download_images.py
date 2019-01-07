@@ -4,7 +4,9 @@ from scrapy import Request
 import json
 
 
-
+"""
+下载图片
+"""
 class ExmpleSpider(scrapy.Spider):
     name = 'downloadimages' # spider的名字
     base_url = 'http://image.so.com/zj?ch=art&sn=%s&listtype=new&temp=1'

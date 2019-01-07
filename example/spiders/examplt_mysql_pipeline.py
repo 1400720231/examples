@@ -2,6 +2,9 @@
 import scrapy
 from ..items import ExampleItem
 
+"""
+保存数据库
+"""
 class ExmpleSpider(scrapy.Spider):
     name = 'booksmysqlpipeline' # spider的名字
     # 开始的爬虫地址
@@ -30,5 +33,12 @@ class ExmpleSpider(scrapy.Spider):
         
 
 """
+知识点：
+    主要内容在pipelines中，需要编写保存到数据库中的pipeline,然后记得在setting.py中配置：
+ITEM_PIPELINES = {
+    ...
+   'example.pipelines.MYSQLPipeline': 301,
+    ...
+}
 
 """
